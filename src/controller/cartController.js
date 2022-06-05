@@ -265,7 +265,7 @@ const getCart = async (req, res) => {
       return res.status(400).send({ status: false, message: "Please provide a valid userId" })
 
     // Authorization Field
-    if (req.userId !== jwtUserId) return res.status(403).send({ status: false, message: "Unauthorized access" })
+    if (req.userId !== userId) return res.status(403).send({ status: false, message: "Unauthorized access" })
 
     //Checking cart in DB
     const checkingCart = await cartModel.findOne({ userId: userId })
